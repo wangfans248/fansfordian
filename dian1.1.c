@@ -1,17 +1,17 @@
 #include <stdio.h>
 
-int main(void){
-	char kind;
+int main() {
+	char name;
 	int aisles;
 	int price;
 	int number;
 	int n;
 	printf("请输入摆放物品的种类、通道、价格以及数量\n");
-	while (scanf(" %c %d %d %d",&kind,&aisles,&price,&number)){
+	while (scanf(" %c %d %d %d", &name, &aisles, &price, &number)){
 	printf("%d: ",aisles);
 	int i;
 	for (i=0;i < number;i++){
-		printf("%c",kind);
+		printf("%c",name);
 }       
         printf(" %d\n",price);
         int n;

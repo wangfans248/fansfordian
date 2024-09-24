@@ -19,31 +19,18 @@ int main() {
                 if (strcmp(names[index], "") == 0) { // 没有商品，输入货物名与通道开始进货
                         strcpy(names[index], choose);
                         prices[index] = price;
-                        nums[index] += num;
+		       	nums[index] += num;
                 } else if (strcmp(names[index], choose) != 0) {
                         printf("一个通道只能装一种商品\n");// 提升不能把多个商品装一个通道
                 } else {// 增加库存数目
                         nums[index] += num;
                 }
                 scanf("%s", choose);
-                if (strcmp(choose, "back") == 0) {
-                        if (count >= 3) {
-                                printf("最多撤销三次!\n");
-                        } else {
-                                printf("已成功撤销!\n");
-                                nums[index] -= num;
-                                if (nums[index] == 0) {
-                                        strcpy(names[index], "");
-                                }
-                                count += 1;
-                        }
-                        scanf("%s", choose);
-                }
-        }
-        // 购买
+        }                         
+     	// 购买
         printf("请输入你想购买的商品、通道及数量\n");
         scanf("%s", choose);
-	int total = 0;
+        int total = 0;
         while (strcmp(choose, "END") != 0) {
                 int index,  num;
                 scanf("%d", &index);
@@ -56,26 +43,15 @@ int main() {
                         printf("库存不足!\n");
                 }
                 scanf("%s", choose);
-                if (strcmp(choose, "back") == 0) {
-                        if (count >= 3) {
-                                printf("最多撤销三次!\n");
-                        } else {
-                                printf("已撤销!\n");
-                                count += 1;
-                                nums[index ] += num;
-                                total -= (prices[index] * num);
-                        }
-                        scanf("%s", choose);
-                }
         }// 理解
         int payNum = 0;
-	int current;
+        int current;
         while (payNum < total) {
                 printf("请支付1元、2元或5元\n");
                 scanf("%d", &current);
                 payNum += current;
         }// 最终支付
-        printf("%d", payNum - total);
+        printf("找零%d", payNum - total);
 
         return 0;
 }
